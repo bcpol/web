@@ -14,8 +14,9 @@
       font-weight: bold;
       font-size: 16px;
       text-align: center;
+      max-width: 120px;
     }
-    .pdf-link img {
+    .pdf-link svg {
       width: 64px;
       height: 64px;
       display: block;
@@ -24,7 +25,7 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    .pdf-link img:hover {
+    .pdf-link:hover svg {
       transform: scale(1.1);
     }
 
@@ -157,12 +158,18 @@
       <h2>Enlaces</h2>
 
       <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+        <!-- Icono PDF SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#d9534f" aria-hidden="true" focusable="false">
+          <path d="M48 2H16a6 6 0 0 0-6 6v48a6 6 0 0 0 6 6h32a6 6 0 0 0 6-6V14L48 2zM16 8h28v10H32a4 4 0 0 1-4-4V8zm32 48H16a2 2 0 0 1-2-2V16h10a6 6 0 0 0 6 6h14v32a2 2 0 0 1-2 2z"/>
+        </svg>
         Enlaces por apuntes
       </a>
 
       <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+        <!-- Icono PDF SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#d9534f" aria-hidden="true" focusable="false">
+          <path d="M48 2H16a6 6 0 0 0-6 6v48a6 6 0 0 0 6 6h32a6 6 0 0 0 6-6V14L48 2zM16 8h28v10H32a4 4 0 0 1-4-4V8zm32 48H16a2 2 0 0 1-2-2V16h10a6 6 0 0 0 6 6h14v32a2 2 0 0 1-2 2z"/>
+        </svg>
         Enlaces por clases
       </a>
     </section>
@@ -170,7 +177,13 @@
     <section id="nubeclases" class="seccion">
       <h2>Nube Clases</h2>
       <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Ir a la carpeta de Google Drive">
-        <img src="https://ssl.gstatic.com/docs/doclist/images/icon_11_collection_list_1x.png" alt="Google Drive" />
+        <!-- Icono Google Drive SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48" aria-hidden="true" focusable="false" style="display: block; margin: 0 auto 8px auto;">
+          <path fill="#33691E" d="M12.04 3.22 3.22 26.54 12.04 42.78 22.78 42.78 31.6 19.46z"/>
+          <path fill="#8BC34A" d="M31.6 19.46 22.78 42.78 36.78 42.78 45.6 19.46z"/>
+          <path fill="#CDDC39" d="M22.78 42.78 36.78 42.78 45.6 19.46 31.6 19.46z"/>
+          <path fill="#FFEB3B" d="M12.04 3.22 22.78 3.22 31.6 19.46 21.86 19.46z"/>
+        </svg>
         Acceder a la nube
       </a>
     </section>
