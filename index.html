@@ -2,43 +2,182 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BCPOL - Oposiciones Policía Local Andalucía</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Estilos para el icono PDF en la sección Enlaces */
-    .pdf-link {
-      display: inline-block;
-      margin: 20px 20px 20px 0;
-      text-decoration: none;
-      color: #d9534f; /* color rojo típico PDF */
-      font-weight: bold;
-      font-size: 16px;
-      text-align: center;
-    }
-    .pdf-link img {
-      width: 64px;
-      height: 64px;
-      display: block;
-      margin: 0 auto 8px auto;
-      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-    .pdf-link img:hover {
-      transform: scale(1.1);
+    body.no-access header,
+    body.no-access footer,
+    body.no-access #content {
+      display: none;
     }
 
-    /* Estilos para icono Google Drive en Nube Clases */
+    /* Login */
+    #login {
+      max-width: 320px;
+      margin: 80px auto;
+      padding: 25px 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.25);
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #login input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #login button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    #login button:hover {
+      background-color: #005ea3;
+    }
+    #login p.message {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Header y navegación */
+    header {
+      background: #0078D7;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header .logo img {
+      width: 48px;
+      height: 48px;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    header nav ul li a:hover,
+    header nav ul li a:focus {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    /* Menú hamburguesa - móvil */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Menú oculto en móvil */
+    nav {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 58px;
+        right: 0;
+        background-color: #0078D7;
+        height: calc(100% - 58px);
+        width: 220px;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        padding-top: 20px;
+        box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+        z-index: 9999;
+      }
+      nav.open {
+        transform: translateX(0);
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding-left: 20px;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* Efecto icono animado */
+    .menu-toggle.open div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.open div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Secciones */
+    .seccion {
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Iconos PDF y Google Drive */
+    .pdf-link,
     .drive-link {
       display: inline-block;
       margin: 20px 20px 20px 0;
       text-decoration: none;
-      color: #4285F4; /* color azul Google Drive */
       font-weight: bold;
       font-size: 16px;
       text-align: center;
+      user-select: none;
     }
+    .pdf-link {
+      color: #d9534f; /* rojo */
+    }
+    .drive-link {
+      color: #4285F4; /* azul */
+    }
+    .pdf-link img,
     .drive-link img {
       width: 64px;
       height: 64px;
@@ -47,66 +186,49 @@
       filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
       cursor: pointer;
       transition: transform 0.2s ease;
+      user-select: none;
     }
+    .pdf-link img:hover,
     .drive-link img:hover {
       transform: scale(1.1);
     }
 
-    /* Estilos para login y contenido */
-    #content { display: none; padding: 20px; }
-    #login {
-      max-width: 300px;
-      margin: 80px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 6px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-      font-family: Arial, sans-serif;
+    /* Calendario */
+    #calendario ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 16px;
+    }
+    #calendario ul li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Footer */
+    footer {
       text-align: center;
-      display: none; /* Se mostrará con JS */
-    }
-    #login input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      box-sizing: border-box;
-    }
-    #login button {
-      width: 100%;
-      padding: 10px;
+      padding: 15px;
       background-color: #0078D7;
       color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 4px;
-    }
-    #login button:hover {
-      background-color: #005ea3;
-    }
-
-    /* Ocultar header y footer mientras no se accede */
-    body.no-access header,
-    body.no-access footer {
-      display: none;
-    }
-
-    /* Estilo lista calendario */
-    #calendario ul {
-      list-style-type:none; 
-      padding-left:0;
+      font-family: Arial, sans-serif;
+      position: sticky;
+      bottom: 0;
+      margin-top: 40px;
     }
 
   </style>
 </head>
 <body class="no-access">
 
-  <!-- Formulario de login -->
+  <!-- Login -->
   <div id="login">
     <h2>Acceso Restringido</h2>
     <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
     <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
     <button onclick="checkPass()">Entrar</button>
+    <p class="message">Solo miembros autorizados pueden acceder.</p>
   </div>
 
   <!-- Contenido protegido -->
@@ -116,7 +238,12 @@
         <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
         <h1>BCPOL</h1>
       </div>
-      <nav>
+      <div class="menu-toggle" id="menuToggle" aria-label="Abrir menú" role="button" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav id="navMenu" aria-label="Menú principal">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#enlaces">Enlaces</a></li>
@@ -127,45 +254,47 @@
       </nav>
     </header>
 
-    <section id="inicio" class="seccion">
-      <h2>Bienvenido a BCPOL</h2>
-      <p>Tu espacio de oposiciones a Policía Local en Andalucía.</p>
-    </section>
+    <main>
+      <section id="inicio" class="seccion">
+        <h2>Bienvenido a BCPOL</h2>
+        <p>Tu espacio de oposiciones a Policía Local en Andalucía.</p>
+      </section>
 
-    <section id="enlaces" class="seccion">
-      <h2>Enlaces</h2>
-      
-      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
-        Enlaces por apuntes
-      </a>
+      <section id="enlaces" class="seccion">
+        <h2>Enlaces</h2>
 
-      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
-        Enlaces por clases
-      </a>
-    </section>
+        <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+          Enlaces por apuntes
+        </a>
 
-    <section id="nubeclases" class="seccion">
-      <h2>Nube Clases</h2>
-      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-link" title="Carpeta Nube Clases">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" alt="Icono Google Drive" />
-        Acceder a la carpeta
-      </a>
-    </section>
+        <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+          Enlaces por clases
+        </a>
+      </section>
 
-    <section id="calendario" class="seccion">
-      <h2>Calendario de Reuniones</h2>
-      <ul>
-        <li>🗓️ <strong>Martes 19 de agosto de 2025</strong> – 🕒 10:00 h</li>
-        <li>🗓️ <strong>Lunes 25 de agosto de 2025</strong> – 🕒 17:00 h</li>
-      </ul>
-    </section>
+      <section id="nubeclases" class="seccion">
+        <h2>Nube Clases</h2>
+        <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-link" title="Carpeta Nube Clases">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" alt="Icono Google Drive" />
+          Acceder a la carpeta
+        </a>
+      </section>
 
-    <section id="contacto" class="seccion">
-      <h2>Contacta con nosotros</h2>
-      <p>Escríbenos a: <strong>bcpolicialocal@gmail.com</strong></p>
-    </section>
+      <section id="calendario" class="seccion">
+        <h2>Calendario de Reuniones</h2>
+        <ul>
+          <li>🗓️ <strong>Martes 19 de agosto de 2025</strong> – 🕒 10:00 h</li>
+          <li>🗓️ <strong>Lunes 25 de agosto de 2025</strong> – 🕒 17:00 h</li>
+        </ul>
+      </section>
+
+      <section id="contacto" class="seccion">
+        <h2>Contacta con nosotros</h2>
+        <p>Escríbenos a: <strong>bcpolicialocal@gmail.com</strong></p>
+      </section>
+    </main>
 
     <footer>
       <p>&copy; 2025 BCPOL. Todos los derechos reservados.</p>
@@ -173,7 +302,6 @@
   </div>
 
   <script>
-    // Al cargar la página mostramos login y ocultamos contenido
     window.onload = function() {
       document.getElementById('login').style.display = 'block';
       document.getElementById('content').style.display = 'none';
@@ -184,11 +312,10 @@
       const user = document.getElementById('user').value.trim();
       const pass = document.getElementById('pass').value.trim();
 
-      // Cambia aquí por tu usuario y contraseña
       const validUser = 'bcpol';
       const validPass = 'bcpol1234';
 
-      if(user === validUser && pass === validPass) {
+      if (user === validUser && pass === validPass) {
         document.getElementById('login').style.display = 'none';
         document.getElementById('content').style.display = 'block';
         document.body.classList.remove('no-access');
@@ -196,7 +323,23 @@
         alert('Usuario o contraseña incorrectos');
       }
     }
-  </script>
 
+    // Menú hamburguesa toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      menuToggle.classList.toggle('open');
+    });
+
+    // Permitir abrir menú con tecla Enter o Espacio para accesibilidad
+    menuToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        menuToggle.click();
+      }
+    });
+  </script>
 </body>
 </html>
