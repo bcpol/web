@@ -28,51 +28,120 @@
     .pdf-link img:hover {
       transform: scale(1.1);
     }
+
+    /* Estilos para login y contenido */
+    #content { display: none; padding: 20px; }
+    #login {
+      max-width: 300px;
+      margin: 80px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #login input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    #login button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    #login button:hover {
+      background-color: #005ea3;
+    }
+
+    /* Ocultar el resto del body mientras no se accede */
+    body.no-access header,
+    body.no-access footer {
+      display: none;
+    }
   </style>
 </head>
-<body>
-  <header>
-    <div class="logo">
-      <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
-      <h1>BCPOL</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#enlaces">Enlaces</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="no-access">
 
-  <section id="inicio" class="seccion">
-    <h2>Bienvenido a BCPOL</h2>
-    <p>Tu espacio de oposiciones a Policía Local en Andalucía.</p>
-  </section>
+  <!-- Formulario de login -->
+  <div id="login">
+    <h2>Acceso Restringido</h2>
+    <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
+    <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
+    <button onclick="checkPass()">Entrar</button>
+  </div>
 
-  <section id="enlaces" class="seccion">
-    <h2>Enlaces</h2>
-   
-    <!-- Enlace al primer PDF -->
-    <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
-      Enlaces por apuntes
-    </a>
+  <!-- Contenido protegido -->
+  <div id="content">
+    <header>
+      <div class="logo">
+        <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
+        <h1>BCPOL</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#enlaces">Enlaces</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- Enlace al segundo PDF -->
-    <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
-      Enlaces por clases
-    </a>
-  </section>
+    <section id="inicio" class="seccion">
+      <h2>Bienvenido a BCPOL</h2>
+      <p>Tu espacio de oposiciones a Policía Local en Andalucía.</p>
+    </section>
 
-  <section id="contacto" class="seccion">
-    <h2>Contacta con nosotros</h2>
-    <p>Escríbenos a: <strong>bcpolicialocal@gmail.com</strong></p>
-  </section>
+    <section id="enlaces" class="seccion">
+      <h2>Enlaces</h2>
+      
+      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+        Enlaces por apuntes
+      </a>
 
-  <footer>
-    <p>&copy; 2025 BCPOL. Todos los derechos reservados.</p>
-  </footer>
+      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+        Enlaces por clases
+      </a>
+    </section>
+
+    <section id="contacto" class="seccion">
+      <h2>Contacta con nosotros</h2>
+      <p>Escríbenos a: <strong>bcpolicialocal@gmail.com</strong></p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 BCPOL. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <script>
+    function checkPass() {
+      const user = document.getElementById('user').value.trim();
+      const pass = document.getElementById('pass').value.trim();
+
+      // Cambia estos valores por usuario y contraseña deseados
+      const validUser = 'bcpol';
+      const validPass = 'bcpol1234';
+
+      if(user === validUser && pass === validPass) {
+        // Mostrar contenido y header/footer
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        document.body.classList.remove('no-access');
+      } else {
+        alert('Usuario o contraseña incorrectos');
+      }
+    }
+  </script>
+
 </body>
 </html>
