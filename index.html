@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BCPOL - Academia de Oposiciones</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Estilos para el icono PDF en la sección Enlaces */
+    .pdf-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #d9534f; /* color rojo típico PDF */
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+    }
+    .pdf-link img {
+      width: 64px;
+      height: 64px;
+      display: block;
+      margin: 0 auto 8px auto;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .pdf-link img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -35,6 +59,12 @@
       <li><a href="#">BOJA</a></li>
       <li><a href="#">Normativa Policial</a></li>
     </ul>
+
+    <!-- Enlace al PDF en Google Drive -->
+    <a href="https://drive.google.com/uc?export=view&id=1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+      Manual Oposiciones
+    </a>
   </section>
 
   <section id="contacto" class="seccion">
