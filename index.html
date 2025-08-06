@@ -6,12 +6,11 @@
   <title>BCPOL - Oposiciones Policía Local Andalucía</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Estilos para el icono PDF en la sección Enlaces */
     .pdf-link {
       display: inline-block;
       margin: 20px 20px 20px 0;
       text-decoration: none;
-      color: #d9534f; /* color rojo típico PDF */
+      color: #d9534f;
       font-weight: bold;
       font-size: 16px;
       text-align: center;
@@ -29,7 +28,6 @@
       transform: scale(1.1);
     }
 
-    /* Estilos para login y contenido */
     #content { display: none; padding: 20px; }
     #login {
       max-width: 300px;
@@ -40,7 +38,7 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
       font-family: Arial, sans-serif;
       text-align: center;
-      display: none; /* Se mostrará con JS */
+      display: none;
     }
     #login input {
       width: 100%;
@@ -62,7 +60,6 @@
       background-color: #005ea3;
     }
 
-    /* Ocultar header y footer mientras no se accede */
     body.no-access header,
     body.no-access footer {
       display: none;
@@ -90,6 +87,7 @@
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#enlaces">Enlaces</a></li>
+          <li><a href="#nube">Nube Clases</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -114,6 +112,24 @@
       </a>
     </section>
 
+    <!-- NUEVA SECCIÓN: NUBE CLASES -->
+    <section id="nube" class="seccion" style="text-align: center; padding: 40px 20px; background-color: #f4f4f4;">
+      <h2 style="font-size: 2rem; margin-bottom: 20px;">📁 NUBE CLASES</h2>
+      <a 
+        href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style="display: inline-flex; align-items: center; background-color: #4285F4; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px;"
+      >
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" 
+          alt="Google Drive" 
+          style="width: 24px; height: 24px; margin-right: 10px;"
+        />
+        Acceder a la carpeta de Google Drive
+      </a>
+    </section>
+
     <section id="contacto" class="seccion">
       <h2>Contacta con nosotros</h2>
       <p>Escríbenos a: <strong>bcpolicialocal@gmail.com</strong></p>
@@ -125,7 +141,6 @@
   </div>
 
   <script>
-    // Al cargar la página mostramos login y ocultamos contenido
     window.onload = function() {
       document.getElementById('login').style.display = 'block';
       document.getElementById('content').style.display = 'none';
@@ -136,7 +151,6 @@
       const user = document.getElementById('user').value.trim();
       const pass = document.getElementById('pass').value.trim();
 
-      // Cambia aquí por tu usuario y contraseña
       const validUser = 'bcpol';
       const validPass = 'bcpol1234';
 
