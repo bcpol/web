@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BCPOL - Oposiciones Policía Local Andalucía</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Academia BCPOL. Oposiciones Policía Local en Andalucía. Apuntes, enlaces y clases." />
   <style>
     .pdf-link {
       display: inline-block;
@@ -29,27 +31,24 @@
     }
 
     .drive-link {
-      display: inline-flex;
-      align-items: center;
-      background-color: #4285F4;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
+      display: inline-block;
+      margin: 20px 0;
       text-decoration: none;
+      color: #4285f4;
       font-weight: bold;
       font-size: 16px;
-      margin-top: 20px;
-      transition: background-color 0.3s ease;
+      text-align: center;
     }
-
     .drive-link img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
+      width: 64px;
+      height: 64px;
+      display: block;
+      margin: 0 auto 8px;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+      transition: transform 0.2s ease;
     }
-
-    .drive-link:hover {
-      background-color: #3367d6;
+    .drive-link img:hover {
+      transform: scale(1.1);
     }
 
     #content { display: none; padding: 20px; }
@@ -92,7 +91,6 @@
 </head>
 <body class="no-access">
 
-  <!-- Formulario de login -->
   <div id="login">
     <h2>Acceso Restringido</h2>
     <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
@@ -100,7 +98,6 @@
     <button onclick="checkPass()">Entrar</button>
   </div>
 
-  <!-- Contenido protegido -->
   <div id="content">
     <header>
       <div class="logo">
@@ -124,31 +121,20 @@
 
     <section id="enlaces" class="seccion">
       <h2>Enlaces</h2>
-      
-      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" class="pdf-link">
+        <img src="img/pdf-icon.svg" alt="Icono PDF" />
         Enlaces por apuntes
       </a>
-
-      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
+      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" class="pdf-link">
+        <img src="img/pdf-icon.svg" alt="Icono PDF" />
         Enlaces por clases
       </a>
     </section>
 
-    <!-- NUEVA SECCIÓN: Nube Clases -->
     <section id="nube" class="seccion">
-      <h2> Nube Clases </h2>
-      <a 
-        href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="drive-link"
-      >
-        <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" 
-          alt="Google Drive"
-        />
+      <h2>NUBE CLASES</h2>
+      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" class="drive-link">
+        <img src="img/drive-icon.png" alt="Google Drive" />
         Acceder a la carpeta de Google Drive
       </a>
     </section>
@@ -173,7 +159,6 @@
     function checkPass() {
       const user = document.getElementById('user').value.trim();
       const pass = document.getElementById('pass').value.trim();
-
       const validUser = 'bcpol';
       const validPass = 'bcpol1234';
 
