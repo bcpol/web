@@ -6,34 +6,30 @@
   <title>BCPOL - Oposiciones Policía Local Andalucía</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Estilos para los enlaces PDF y Google Drive */
-    .pdf-link, .drive-link {
+    .pdf-link {
       display: inline-block;
-      width: 48%;
-      margin: 10px 1%;
+      margin: 20px 20px 20px 0;
       text-decoration: none;
-      color: #333;
+      color: #d9534f;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
-      vertical-align: top;
     }
-
-    .pdf-link img, .drive-link img {
-      width: 48px;
-      height: 48px;
+    .pdf-link img {
+      width: 64px;
+      height: 64px;
       display: block;
-      margin: 0 auto 8px;
+      margin: 0 auto 8px auto;
       filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+      cursor: pointer;
       transition: transform 0.2s ease;
     }
-
-    .pdf-link img:hover, .drive-link img:hover {
+    .pdf-link img:hover {
       transform: scale(1.1);
     }
 
-    /* Estilos para login y contenido */
     #content { display: none; padding: 20px; }
+
     #login {
       max-width: 300px;
       margin: 80px auto;
@@ -43,7 +39,7 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
       font-family: Arial, sans-serif;
       text-align: center;
-      display: none; /* Se mostrará con JS */
+      display: none;
     }
     #login input {
       width: 100%;
@@ -65,30 +61,16 @@
       background-color: #005ea3;
     }
 
-    /* Ocultar header y footer mientras no se accede */
     body.no-access header,
     body.no-access footer {
       display: none;
     }
-
-    /* Responsivo */
-    @media (max-width: 600px) {
-      .pdf-link, .drive-link {
-        width: 100%;
-        margin: 10px 0;
-        font-size: 16px;
-      }
-
-      .pdf-link img, .drive-link img {
-        width: 64px;
-        height: 64px;
-      }
-    }
   </style>
 </head>
+
 <body class="no-access">
 
-  <!-- Formulario de login -->
+  <!-- LOGIN -->
   <div id="login">
     <h2>Acceso Restringido</h2>
     <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
@@ -96,7 +78,7 @@
     <button onclick="checkPass()">Entrar</button>
   </div>
 
-  <!-- Contenido protegido -->
+  <!-- CONTENIDO PROTEGIDO -->
   <div id="content">
     <header>
       <div class="logo">
@@ -107,7 +89,7 @@
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#enlaces">Enlaces</a></li>
-          <li><a href="#nube-clases">NUBE CLASES</a></li>
+          <li><a href="#nubeclases">Nube Clases</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -120,23 +102,28 @@
 
     <section id="enlaces" class="seccion">
       <h2>Enlaces</h2>
-      
-      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
-        <img src="pdf-icon.png" alt="https://github.com/bcpol/web/blob/5f3f2bb22cebe27c95c4f073d8e529adc37d4aed/pdf-icon.png" />
+
+      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview"
+         target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
         Enlaces por apuntes
       </a>
 
-      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
-        <img src="pdf-icon.png" alt="https://github.com/bcpol/web/blob/5f3f2bb22cebe27c95c4f073d8e529adc37d4aed/pdf-icon.png" />
+      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview"
+         target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
         Enlaces por clases
       </a>
     </section>
 
-    <section id="nube-clases" class="seccion">
-      <h2>NUBE CLASES</h2>
-      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-link" title="Acceder a Nube Clases Google Drive">
-        <img src="google-drive-icon.png" alt="https://github.com/bcpol/web/blob/58740e795afd9eb936d22a534c773c299e69aff7/drive-icon.png" />
-        Acceso a carpeta en Google Drive
+    <section id="nubeclases" class="seccion">
+      <h2>Nube Clases</h2>
+
+      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing"
+         target="_blank" rel="noopener noreferrer" class="pdf-link" title="Acceso a la carpeta de Google Drive">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png"
+             alt="Icono Google Drive" />
+        Acceso a carpeta de clases
       </a>
     </section>
 
@@ -150,8 +137,8 @@
     </footer>
   </div>
 
+  <!-- SCRIPT LOGIN -->
   <script>
-    // Al cargar la página mostramos login y ocultamos contenido
     window.onload = function() {
       document.getElementById('login').style.display = 'block';
       document.getElementById('content').style.display = 'none';
@@ -162,7 +149,6 @@
       const user = document.getElementById('user').value.trim();
       const pass = document.getElementById('pass').value.trim();
 
-      // Cambia aquí por tu usuario y contraseña
       const validUser = 'bcpol';
       const validPass = 'bcpol1234';
 
