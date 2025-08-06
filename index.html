@@ -40,6 +40,7 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
       font-family: Arial, sans-serif;
       text-align: center;
+      display: none; /* Se mostrará con JS */
     }
     #login input {
       width: 100%;
@@ -61,7 +62,7 @@
       background-color: #005ea3;
     }
 
-    /* Ocultar el resto del body mientras no se accede */
+    /* Ocultar header y footer mientras no se accede */
     body.no-access header,
     body.no-access footer {
       display: none;
@@ -124,16 +125,22 @@
   </div>
 
   <script>
+    // Al cargar la página mostramos login y ocultamos contenido
+    window.onload = function() {
+      document.getElementById('login').style.display = 'block';
+      document.getElementById('content').style.display = 'none';
+      document.body.classList.add('no-access');
+    };
+
     function checkPass() {
       const user = document.getElementById('user').value.trim();
       const pass = document.getElementById('pass').value.trim();
 
-      // Cambia estos valores por usuario y contraseña deseados
+      // Cambia aquí por tu usuario y contraseña
       const validUser = 'bcpol';
       const validPass = 'bcpol1234';
 
       if(user === validUser && pass === validPass) {
-        // Mostrar contenido y header/footer
         document.getElementById('login').style.display = 'none';
         document.getElementById('content').style.display = 'block';
         document.body.classList.remove('no-access');
