@@ -6,6 +6,12 @@
   <title>BCPOL - Oposiciones Policía Local Andalucía</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    body.no-access header,
+    body.no-access footer {
+      display: none;
+    }
+
+    /* Estilos para iconos */
     .pdf-link {
       display: inline-block;
       margin: 20px 20px 20px 0;
@@ -15,6 +21,7 @@
       font-size: 16px;
       text-align: center;
     }
+
     .pdf-link img {
       width: 64px;
       height: 64px;
@@ -24,12 +31,37 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
+
     .pdf-link img:hover {
       transform: scale(1.1);
     }
 
-    #content { display: none; padding: 20px; }
+    .drive-link {
+      display: inline-block;
+      margin: 20px 20px 20px 0;
+      text-decoration: none;
+      color: #0078D7;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+    }
 
+    .drive-link img {
+      width: 64px;
+      height: 64px;
+      display: block;
+      margin: 0 auto 8px auto;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .drive-link img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Login */
+    #content { display: none; padding: 20px; }
     #login {
       max-width: 300px;
       margin: 80px auto;
@@ -39,14 +71,15 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
       font-family: Arial, sans-serif;
       text-align: center;
-      display: none;
     }
+
     #login input {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
       box-sizing: border-box;
     }
+
     #login button {
       width: 100%;
       padding: 10px;
@@ -57,36 +90,75 @@
       font-size: 16px;
       border-radius: 4px;
     }
+
     #login button:hover {
       background-color: #005ea3;
     }
 
-    body.no-access header,
-    body.no-access footer {
+    /* Menú hamburguesa */
+    .hamburger {
       display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #333;
+      margin-right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      nav#nav-menu ul {
+        display: none;
+        flex-direction: column;
+        background: #f9f9f9;
+        padding: 10px;
+        margin: 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        z-index: 999;
+      }
+
+      nav#nav-menu ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 10px;
+      }
+
+      nav#nav-menu ul li {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 
 <body class="no-access">
+  <!-- LOGIN -->
+  <div id="login">
+    <h2>Acceso Restringido</h2>
+    <p>Este acceso es exclusivo para <strong>miembros de BCPOL</strong>. Si eres miembro, introduce tus credenciales.</p>
+    <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
+    <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
+    <button onclick="checkPass()">Entrar</button>
+  </div>
 
- <!-- LOGIN -->
-<div id="login">
-  <h2>Acceso Restringido</h2>
-  <p>Este acceso es exclusivo para <strong>miembros de BCPOL</strong>. Si eres miembro, introduce tus credenciales.</p>
-  <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
-  <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
-  <button onclick="checkPass()">Entrar</button>
-</div>
-
-  <!-- CONTENIDO PROTEGIDO -->
+  <!-- CONTENIDO -->
   <div id="content">
     <header>
       <div class="logo">
         <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
         <h1>BCPOL</h1>
       </div>
-      <nav>
+
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+      <nav id="nav-menu">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#enlaces">Enlaces</a></li>
@@ -104,14 +176,12 @@
     <section id="enlaces" class="seccion">
       <h2>Enlaces</h2>
 
-      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview"
-         target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
+      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Manual Oposiciones PDF">
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
         Enlaces por apuntes
       </a>
 
-      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview"
-         target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
+      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link" title="Abrir Documento Adicional PDF">
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Icono PDF" />
         Enlaces por clases
       </a>
@@ -119,12 +189,9 @@
 
     <section id="nubeclases" class="seccion">
       <h2>Nube Clases</h2>
-
-      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing"
-         target="_blank" rel="noopener noreferrer" class="pdf-link" title="Acceso a la carpeta de Google Drive">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png"
-             alt="Icono Google Drive" />
-        Acceso a carpeta de clases
+      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-link" title="Abrir carpeta Drive">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" alt="Google Drive" />
+        Acceso a carpeta Drive
       </a>
     </section>
 
@@ -138,7 +205,6 @@
     </footer>
   </div>
 
-  <!-- SCRIPT LOGIN -->
   <script>
     window.onload = function() {
       document.getElementById('login').style.display = 'block';
@@ -149,11 +215,10 @@
     function checkPass() {
       const user = document.getElementById('user').value.trim();
       const pass = document.getElementById('pass').value.trim();
-
       const validUser = 'bcpol';
       const validPass = 'bcpol1234';
 
-      if(user === validUser && pass === validPass) {
+      if (user === validUser && pass === validPass) {
         document.getElementById('login').style.display = 'none';
         document.getElementById('content').style.display = 'block';
         document.body.classList.remove('no-access');
@@ -161,7 +226,11 @@
         alert('Usuario o contraseña incorrectos');
       }
     }
-  </script>
 
+    function toggleMenu() {
+      const menu = document.querySelector('#nav-menu ul');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
