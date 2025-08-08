@@ -30,6 +30,7 @@
     }
 
     #content { display: none; padding: 20px; }
+
     #login {
       max-width: 300px;
       margin: 80px auto;
@@ -66,6 +67,22 @@
       display: none;
     }
 
+    /* CABECERA FIJA */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Para que el contenido no quede oculto bajo el header fijo */
+    #content {
+      padding-top: 100px; /* Ajusta según la altura real del header */
+    }
+
     /* Menú hamburguesa */
     .hamburger {
       display: none;
@@ -75,6 +92,10 @@
       cursor: pointer;
       color: #333;
       margin-right: 20px;
+      position: absolute;
+      top: 25px;
+      right: 10px;
+      z-index: 1100;
     }
 
     @media (max-width: 768px) {
@@ -86,9 +107,9 @@
         margin: 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         position: absolute;
-        top: 70px;
+        top: 70px; /* Ajustado para header fijo */
         right: 10px;
-        z-index: 999;
+        z-index: 9999;
       }
 
       nav#nav-menu ul.show {
@@ -111,9 +132,6 @@
 
       .hamburger {
         display: block;
-        position: absolute;
-        top: 25px;
-        right: 10px;
       }
     }
   </style>
@@ -171,7 +189,7 @@
       </a>
     </section>
 
-       <!-- ... -->
+    <!-- ... resto del contenido ... -->
 
     <section id="nubeclases" class="seccion">
       <h2>Nube Clases</h2>
