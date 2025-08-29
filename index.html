@@ -81,6 +81,21 @@
       margin-right: 20px;
     }
 
+    /* ===================== */
+    /* ENLACE MENÚ CON EFECTO SCALE */
+    /* ===================== */
+    #nav-menu ul li a {
+      text-decoration: none;        /* Quitamos subrayado */
+      display: inline-block;        /* Necesario para el scale */
+      transition: transform 0.2s ease; /* Igual que los iconos */
+      color: #333;
+      font-weight: bold;
+    }
+
+    #nav-menu ul li a:hover {
+      transform: scale(1.1);       /* Agranda igual que los iconos */
+    }
+
     @media (max-width: 768px) {
       nav#nav-menu ul {
         display: none;
@@ -104,9 +119,11 @@
         color: #333;
         text-decoration: none;
         font-weight: bold;
+        display: inline-block;
+        transition: transform 0.2s ease;
       }
       nav#nav-menu ul li a:hover {
-        color: #0078D7;
+        transform: scale(1.1);
       }
       .hamburger {
         display: block;
@@ -131,7 +148,7 @@
       margin-top: 10px;
     }
     .tabla-convocatorias thead {
-      background-color: #1e40af; /* mismo azul que cabecera */
+      background-color: #1e40af;
       color: #fff;
     }
     .tabla-convocatorias th,
@@ -173,7 +190,7 @@
     }
     .input-icon input {
       width: 100%;
-      padding: 10px 10px 10px 40px; /* espacio para el icono */
+      padding: 10px 10px 10px 40px;
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -193,19 +210,19 @@
       <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
     </div>
     <h2>Acceso Restringido</h2>
-    <p>Este acceso es exclusivo para <strong>miembros de BCPOL</strong>. Si eres miembro, introduce tus credenciales.</p>
+    <p>Acceso exclusivo para <strong>miembros de BCPOL</strong>. Introduce tus credenciales.</p>
     
     <div class="input-icon">
       <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
       <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#888" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
     </div>
 
-<div class="input-icon">
-  <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
-  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path fill="#888" d="M12 17a2 2 0 0 0 2-2v-3a2 2 0 0 0-4 0v3a2 2 0 0 0 2 2zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-7-3a3 3 0 0 1 6 0v3h-6V7z"/>
-  </svg>
-</div>
+    <div class="input-icon">
+      <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="#888" d="M12 17a2 2 0 0 0 2-2v-3a2 2 0 0 0-4 0v3a2 2 0 0 0 2 2zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-7-3a3 3 0 0 1 6 0v3h-6V7z"/>
+      </svg>
+    </div>
 
     <button onclick="checkPass()">Entrar</button>
   </div>
@@ -258,7 +275,6 @@
       </a>
     </section>
 
-    <!-- NUEVA SECCIÓN CALENDARIO EN TABLA -->
     <section id="calendario" class="seccion">
       <h2>Calendario Clases</h2>
       <div class="tabla-responsive">
