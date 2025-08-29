@@ -14,59 +14,41 @@
     gtag('js', new Date());
     gtag('config', 'G-52KLKV2QM9');
   </script>
-
+  
   <style>
     /* ===================== */
     /* ESTILOS GENERALES Y PDF */
     /* ===================== */
     .pdf-link {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
       text-decoration: none;
       color: #d9534f;
       font-weight: bold;
       font-size: 16px;
-      margin: 10px;
-      transition: transform 0.2s ease;
+      text-align: center;
+      max-width: 120px;
+      display: inline-block;
+      margin: 20px 20px 20px 0;
     }
     .pdf-link img {
       width: 100%;
       max-width: 64px;
       height: auto;
       display: block;
-      margin-bottom: 8px;
+      margin: 0 auto 8px auto;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
     .pdf-link:hover img { transform: scale(1.1); }
 
-    /* Contenedores de PDFs (todas las secciones) */
-    #enlaces, #documentos, #nubeclases, #supuestosemanal, #saladereuniones {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 20px 0;
-    }
-
-    /* Títulos siempre arriba de iconos */
-    .seccion h2 {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 20px;
+    /* Centrar enlaces únicos en secciones */
+    #nubeclases .pdf-link,
+    #supuestosemanal .pdf-link,
+    #saladereuniones .pdf-link {
+      display: block;
+      margin: 20px auto;
     }
 
     #content { display: none; padding: 20px; }
-
-    body.no-access header, body.no-access footer { display: none; }
-    .contenedor-general { max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
-    .seccion { margin: 0 auto 15px auto; text-align: center; padding: 20px; box-sizing: border-box; }
-
-    /* ===================== */
-    /* LOGIN */
-    /* ===================== */
     #login {
       max-width: 300px;
       margin: 80px auto;
@@ -89,6 +71,8 @@
       border-radius: 4px;
     }
     #login button:hover { background-color: #005ea3; }
+
+    body.no-access header, body.no-access footer { display: none; }
 
     .logo-login { margin-bottom: 20px; text-align: center; }
     .logo-login img { width: 140px; height: auto; display: inline-block; margin-bottom: 3px; }
@@ -152,6 +136,13 @@
     }
 
     /* ===================== */
+    /* CENTRAR CONTENIDO DE SECCIONES */
+    /* ===================== */
+    .contenedor-general { max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+    header, .seccion { width: 100%; }
+    .seccion { margin: 0 auto 15px auto; text-align: center; padding: 20px; box-sizing: border-box; }
+
+    /* ===================== */
     /* TABLAS */
     /* ===================== */
     .tabla-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -168,6 +159,54 @@
     .tabla-convocatorias tbody tr:nth-child(even) { background-color: #f9fafb; }
     .tabla-convocatorias tbody tr:hover { background-color: #e0f2fe; }
     @media (max-width: 600px) { .tabla-convocatorias th, .tabla-convocatorias td { padding: 8px; font-size: 13px; } }
+
+    /* ===================== */
+    /* LOGIN ICONOS */
+    /* ===================== */
+    .input-icon { position: relative; margin: 10px 0; }
+    .input-icon .icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; pointer-events: none; transition: fill 0.2s ease; }
+    .input-icon input { width: 100%; padding: 10px 10px 10px 40px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+    .input-icon input:focus + .icon, .input-icon input:focus ~ .icon { fill: #0078D7; }
+
+    /* ===================== */
+    /* IMAGEN INICIO - BORDES, SOMBRA, HOVER Y RESPONSIVE */
+    /* ===================== */
+    #inicio img {
+      width: 25%; 
+      max-width: 300px; 
+      height: auto; 
+      display: block; 
+      margin-left: auto; 
+      margin-right: auto; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+      margin-top: 20px; 
+      transition: transform 0.3s ease;
+    }
+    #inicio img:hover { transform: scale(1.05); }
+    @media (max-width: 768px) {
+      #inicio img { width: 80%; max-width: 400px; }
+    }
+
+    /* ===================== */
+    /* CENTRAR ICONOS PDF EN #ENLACES */
+    /* ===================== */
+    #enlaces {
+      display: flex;              /* Usamos flex para alinear los enlaces en fila */
+      justify-content: center;    /* Centrar horizontalmente */
+      gap: 20px;                  /* Separación entre los iconos */
+      flex-wrap: wrap;            /* Que se adapten en pantallas pequeñas */
+    }
+
+    #enlaces .pdf-link {
+      display: flex;              /* Para que el icono y texto estén en columna */
+      flex-direction: column;     /* Icono arriba, texto debajo */
+      align-items: center;        /* Centrar el contenido dentro del enlace */
+      max-width: 120px;           /* Mantener un ancho máximo */
+      margin: 0;                  /* El gap del contenedor maneja la separación */
+      text-align: center;         /* Asegura que el texto quede centrado */
+    }
+
   </style>
 </head>
 <body class="no-access">
@@ -228,36 +267,36 @@
     <!-- SECCIÓN ENLACES -->
     <section id="enlaces" class="seccion">
       <h2>Enlaces Videos</h2>
-      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" class="pdf-link">
+      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
         Enlaces por apuntes
       </a>
-      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" class="pdf-link">
+      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
         Enlaces por clases
       </a>
     </section>
 
-    <!-- SECCIÓN DOCUMENTOS -->
-    <section id="documentos" class="seccion">
+        <!-- SECCIÓN DOCUMENTOS -->
+    <section id="documentos" class="documentos">
       <h2>Documentos</h2>
-      <a href="https://drive.google.com/open?id=1LPretn8oBDGB37tlJ1Ysmf14CQNylwlR&usp=drive_fs" target="_blank" class="pdf-link">
+      <a href="https://drive.google.com/open?id=1LPretn8oBDGB37tlJ1Ysmf14CQNylwlR&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
         Legislación
       </a>
-      <a href="https://drive.google.com/open?id=1gNRJZjFLIdC4NZBoDkNVE48VLyaC0rJ2&usp=drive_fs" target="_blank" class="pdf-link">
+      <a href="https://drive.google.com/open?id=1gNRJZjFLIdC4NZBoDkNVE48VLyaC0rJ2&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
         Esquema Infracciones
       </a>
-      <a href="https://drive.google.com/open?id=1eh4vmMmnxg-RS-0S71JLljQNUD2gxDil&usp=drive_fs" target="_blank" class="pdf-link">
+       <a href="https://drive.google.com/open?id=1eh4vmMmnxg-RS-0S71JLljQNUD2gxDil&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
         Codificado BCPOL
-      </a>
-      <a href="https://drive.google.com/open?id=1ptlBPjzbi_BPp2wFNIft6e0IMAw5ZIn2&usp=drive_fs" target="_blank" class="pdf-link">
+       </a>
+       <a href="https://drive.google.com/open?id=1ptlBPjzbi_BPp2wFNIft6e0IMAw5ZIn2&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
         Artículos CP
       </a>
-      <a href="https://drive.google.com/open?id=1XZ3H9017EzPoCMyz6GT0O6U6JMcl-bDC&usp=drive_fs" target="_blank" class="pdf-link">
+         <a href="https://drive.google.com/open?id=1XZ3H9017EzPoCMyz6GT0O6U6JMcl-bDC&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
         Codificado DGT
       </a>
@@ -266,7 +305,7 @@
     <!-- SECCIÓN NUBE -->
     <section id="nubeclases" class="seccion">
       <h2>Nube Clases</h2>
-      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" class="pdf-link">
+      <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/google-drive_256x256.png" alt="Icono Google Drive" />
         Acceder a la Nube
       </a>
@@ -293,7 +332,7 @@
     <!-- SECCIÓN SUPUESTO SEMANAL -->
     <section id="supuestosemanal" class="seccion">
       <h2>Supuesto Semanal</h2>
-      <a href="https://drive.google.com/drive/folders/1W6Nzpr4zmKE7ssLPECfKjWb3EKIfQpEA" target="_blank" class="pdf-link">
+      <a href="https://drive.google.com/drive/folders/1W6Nzpr4zmKE7ssLPECfKjWb3EKIfQpEA" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/google-drive_256x256.png" alt="Icono Google Drive" />
         Acceder al Supuesto Semanal
       </a>
@@ -323,7 +362,7 @@
     <!-- SECCIÓN SALA DE REUNIONES -->
     <section id="saladereuniones" class="seccion">
       <h2>Sala de Reuniones</h2>
-      <a href="https://discord.gg/BmeagK2A" target="_blank" class="pdf-link">
+      <a href="https://discord.gg/BmeagK2A" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/refs/heads/main/discord.png" alt="Icono Discord" />
         Ir a la Sala de Reuniones
       </a>
