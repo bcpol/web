@@ -20,14 +20,14 @@
     /* ESTILOS GENERALES Y PDF */
     /* ===================== */
     .pdf-link {
-      display: inline-block;
-      margin: 20px 20px 20px 0;
       text-decoration: none;
       color: #d9534f;
       font-weight: bold;
       font-size: 16px;
       text-align: center;
       max-width: 120px;
+      display: inline-block;
+      margin: 20px 20px 20px 0;
     }
     .pdf-link img {
       width: 100%;
@@ -39,6 +39,14 @@
       transition: transform 0.2s ease;
     }
     .pdf-link:hover img { transform: scale(1.1); }
+
+    /* Centrar enlaces únicos en secciones */
+    #nubeclases .pdf-link,
+    #supuestosemanal .pdf-link,
+    #saladereuniones .pdf-link {
+      display: block;
+      margin: 20px auto;
+    }
 
     #content { display: none; padding: 20px; }
     #login {
