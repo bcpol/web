@@ -14,133 +14,11 @@
     gtag('js', new Date());
     gtag('config', 'G-52KLKV2QM9');
   </script>
-
+  
   <style>
     /* ===================== */
-    /* ESTILOS HEADER AVANZADO */
+    /* ENLACE PDF Y ESTILOS GENERALES */
     /* ===================== */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    .contenedor-general {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
-
-    /* Header */
-    header {
-      background-color: #1e40af;
-      position: relative;
-      z-index: 1000;
-    }
-
-    .contenedor-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo img {
-      width: 50px;
-      height: auto;
-    }
-
-    .logo h1 {
-      color: #fff;
-      font-size: 24px;
-      margin: 0;
-    }
-
-    /* Menu desktop */
-    #nav-menu ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-
-    #nav-menu ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-    }
-
-    #nav-menu ul li a:hover {
-      transform: scale(1.1);
-    }
-
-    /* Hamburger móvil */
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      color: #fff;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Menu móvil deslizante */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      #nav-menu {
-        position: fixed;
-        top: 0;
-        right: -250px; /* fuera de la pantalla */
-        width: 250px;
-        height: 100%;
-        background-color: #fff;
-        box-shadow: -4px 0 8px rgba(0,0,0,0.2);
-        transition: right 0.3s ease;
-        padding-top: 70px;
-        z-index: 999;
-      }
-
-      #nav-menu.open {
-        right: 0;
-      }
-
-      #nav-menu ul {
-        flex-direction: column;
-        gap: 20px;
-        padding-left: 0;
-        margin: 0;
-      }
-
-      #nav-menu ul li a {
-        color: #000;
-        font-weight: bold;
-        display: block;
-        text-align: center;
-      }
-    }
-
-    /* ===================== */
-    /* SECCIONES GENERALES */
-    /* ===================== */
-    .seccion {
-      margin: 0 auto 15px auto;
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    /* Enlaces PDF */
     .pdf-link {
       display: inline-block;
       margin: 20px 20px 20px 0;
@@ -151,7 +29,6 @@
       text-align: center;
       max-width: 120px;
     }
-
     .pdf-link img {
       width: 100%;
       max-width: 64px;
@@ -161,24 +38,155 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-
     .pdf-link:hover img {
       transform: scale(1.1);
     }
 
-    /* Tabla convocatorias */
+    #content { display: none; padding: 20px; }
+    #login {
+      max-width: 300px;
+      margin: 80px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: none;
+    }
+    #login button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    #login button:hover {
+      background-color: #005ea3;
+    }
+
+    body.no-access header,
+    body.no-access footer {
+      display: none;
+    }
+
+    .logo-login {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .logo-login img {
+      width: 140px;
+      height: auto;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #fff; /* icono blanco por defecto */
+      margin-right: 20px;
+    }
+
+    header {
+     margin-bottom: 15px;
+    }
+
+    /* ===================== */
+    /* ENLACE MENÚ CON EFECTO SCALE Y LETRAS BLANCAS */
+    /* ===================== */
+    #nav-menu ul li a {
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s ease;
+      color: #fff;       /* letras blancas por defecto en escritorio */
+      font-weight: bold;
+    }
+
+    #nav-menu ul li a:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      nav#nav-menu ul {
+        display: none;
+        flex-direction: column;
+        background: #fff; /* fondo blanco */
+        padding: 10px;
+        margin: 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        z-index: 999;
+      }
+      nav#nav-menu ul.show {
+        display: flex;
+      }
+      nav#nav-menu ul li {
+        margin: 10px 0;
+      }
+      nav#nav-menu ul li a {
+        color: #000; /* letras negras */
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+      nav#nav-menu ul li a:hover {
+        transform: scale(1.1);
+      }
+      .hamburger {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 10px;
+        color: #fff; /* icono hamburguesa blanco */
+      }
+    }
+
+    /* ===================== */
+    /* CENTRAR CONTENIDO DE SECCIONES */
+    /* ===================== */
+    .contenedor-general {
+      max-width: 1200px; /* ancho deseado para cabecera y secciones */
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    header, .seccion {
+      width: 100%;
+    }
+
+    .seccion {
+      margin: 0 auto 15px auto;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* ===================== */
+    /* TABLA AJUSTADA AL CONTENIDO */
+    /* ===================== */
     .tabla-responsive {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
 
     .tabla-convocatorias {
-      width: auto;
+      width: auto; /* se ajusta al contenido */
       min-width: 100px;
       border-collapse: collapse;
       font-family: Arial, sans-serif;
       font-size: 14px;
-      margin: 10px auto;
+      margin: 10px auto; /* centra la tabla */
     }
 
     .tabla-convocatorias thead {
@@ -209,11 +217,34 @@
       }
     }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #1e40af;
-      color: #fff;
+    /* ===================== */
+    /* LOGIN CON ICONOS */
+    /* ===================== */
+    .input-icon {
+      position: relative;
+      margin: 10px 0;
+    }
+    .input-icon .icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      transition: fill 0.2s ease;
+    }
+    .input-icon input {
+      width: 100%;
+      padding: 10px 10px 10px 40px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .input-icon input:focus + .icon,
+    .input-icon input:focus ~ .icon {
+      fill: #0078D7;
     }
   </style>
 </head>
@@ -229,10 +260,14 @@
     
     <div class="input-icon">
       <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#888" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
     </div>
 
     <div class="input-icon">
       <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="#888" d="M12 17a2 2 0 0 0 2-2v-3a2 2 0 0 0-4 0v3a2 2 0 0 0 2 2zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-7-3a3 3 0 0 1 6 0v3h-6V7z"/>
+      </svg>
     </div>
 
     <button onclick="checkPass()">Entrar</button>
@@ -241,31 +276,27 @@
   <!-- CONTENIDO -->
   <div id="content">
     <div class="contenedor-general">
-      <!-- Header avanzado -->
       <header>
-        <div class="contenedor-header">
-          <div class="logo">
-            <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
-            <h1>BCPOL</h1>
-          </div>
-
-          <button class="hamburger" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
-
-          <nav id="nav-menu">
-            <ul>
-              <li><a href="#inicio">Inicio</a></li>
-              <li><a href="#enlaces">Enlaces Videos</a></li>
-              <li><a href="#nubeclases">Nube Clases</a></li>
-              <li><a href="#calendario">Calendario</a></li>
-              <li><a href="#supuestosemanal">Supuesto Semanal</a></li>
-              <li><a href="#convocatorias">Convocatorias</a></li>
-              <li><a href="#saladereuniones">Sala de Reuniones</a></li>
-            </ul>
-          </nav>
+        <div class="logo">
+          <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
+          <h1>BCPOL</h1>
         </div>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+        <nav id="nav-menu">
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#enlaces">Enlaces</a></li>
+            <li><a href="#nubeclases">Nube</a></li>
+            <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#supuestosemanal">Supuesto Semanal</a></li>
+            <li><a href="#convocatorias">Convocatorias</a></li>
+            <li><a href="#saladereuniones">Sala Reuniones</a></li>
+          </ul>
+        </nav>
       </header>
 
-      <!-- SECCIONES -->
       <section id="inicio" class="seccion">
         <h2>Bienvenido a BCPOL</h2>
         <p>Tu espacio de oposiciones a Policía Local en Andalucía.</p>
@@ -381,7 +412,8 @@
     }
 
     function toggleMenu() {
-      document.getElementById('nav-menu').classList.toggle('open');
+      const menu = document.querySelector('#nav-menu ul');
+      menu.classList.toggle('show');
     }
   </script>
 </body>
