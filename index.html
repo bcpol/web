@@ -30,100 +30,53 @@
     }
 
     #content { display: none; padding: 20px; }
+    #login {
+      max-width: 300px;
+      margin: 80px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: none;
+    }
+    #login input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    #login button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    #login button:hover {
+      background-color: #005ea3;
+    }
 
     body.no-access header,
     body.no-access footer {
       display: none;
     }
 
-    /* ================== */
-    /* LOGIN MODERNO      */
-    /* ================== */
-    body {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-    }
-
-    #login {
-      max-width: 360px;
-      margin: 10vh auto;
-      padding: 30px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      text-align: center;
-      display: none;
-      animation: fadeIn 0.8s ease;
-    }
-
-    #login h2 {
-      margin-bottom: 10px;
-      font-size: 22px;
-      color: #1e3a8a;
-    }
-
-    #login p {
+    .logo-login {
       margin-bottom: 20px;
-      font-size: 14px;
-      color: #555;
+      text-align: center;
     }
-
-    #login .form-group {
-      margin-bottom: 15px;
-    }
-
-    #login input {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 15px;
-      outline: none;
-      transition: border 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    #login input:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
-    }
-
-    #login button {
-      width: 100%;
-      padding: 12px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.2s ease, transform 0.1s ease;
-    }
-
-    #login button:hover {
-      background: #1e40af;
-      transform: scale(1.02);
-    }
-
-    #login button:active {
-      transform: scale(0.98);
-    }
-
     .logo-login img {
-      width: 120px;
+      width: 140px;
       height: auto;
-      margin-bottom: 15px;
+      display: inline-block;
+      margin-bottom: 3px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===================== */
-    /* MENÚ HAMBURGUESA      */
-    /* ===================== */
     .hamburger {
       display: none;
       background: none;
@@ -215,14 +168,10 @@
     <div class="logo-login">
       <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
     </div>
-    <h2>Acceso BCPOL</h2>
-    <p>Introduce tus credenciales para continuar</p>
-    <div class="form-group">
-      <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
-    </div>
-    <div class="form-group">
-      <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
-    </div>
+    <h2>Acceso Restringido</h2>
+    <p>Este acceso es exclusivo para <strong>miembros de BCPOL</strong>. Si eres miembro, introduce tus credenciales.</p>
+    <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
+    <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
     <button onclick="checkPass()">Entrar</button>
   </div>
 
