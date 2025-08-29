@@ -26,27 +26,21 @@
       font-size: 16px;
       text-align: center;
       max-width: 120px;
-      display: inline-block;
-      margin: 20px 20px 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
     }
     .pdf-link img {
       width: 100%;
       max-width: 64px;
       height: auto;
       display: block;
-      margin: 0 auto 8px auto;
+      margin-bottom: 8px;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
     .pdf-link:hover img { transform: scale(1.1); }
-
-    /* Centrar enlaces únicos en secciones */
-    #nubeclases .pdf-link,
-    #supuestosemanal .pdf-link,
-    #saladereuniones .pdf-link {
-      display: block;
-      margin: 20px auto;
-    }
 
     #content { display: none; padding: 20px; }
     #login {
@@ -191,22 +185,20 @@
     /* ===================== */
     /* CENTRAR ICONOS PDF EN #ENLACES y #DOCUMENTOS */
     /* ===================== */
-    #enlaces,
-    #documentos {
+    #enlaces, #documentos {
+      text-align: center; /* Centrar títulos */
+    }
+
+    #enlaces h2, #documentos h2 {
+      margin-bottom: 20px; /* Espacio igual que calendario */
+    }
+
+    .pdf-link-container {
       display: flex;             
       justify-content: center;   
       gap: 20px;                 
-      flex-wrap: wrap;           
-    }
-
-    #enlaces .pdf-link,
-    #documentos .pdf-link {
-      display: flex;              
-      flex-direction: column;     
-      align-items: center;        
-      max-width: 120px;           
-      margin: 0;                  
-      text-align: center;         
+      flex-wrap: wrap;
+      margin-bottom: 20px; /* Espacio inferior igual que tablas de calendario */
     }
   </style>
 </head>
@@ -268,39 +260,43 @@
     <!-- SECCIÓN ENLACES -->
     <section id="enlaces" class="seccion">
       <h2>Enlaces Videos</h2>
-      <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
-        <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Enlaces por apuntes
-      </a>
-      <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
-        <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Enlaces por clases
-      </a>
+      <div class="pdf-link-container">
+        <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
+          <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
+          Enlaces por apuntes
+        </a>
+        <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
+          <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
+          Enlaces por clases
+        </a>
+      </div>
     </section>
 
     <!-- SECCIÓN DOCUMENTOS -->
     <section id="documentos" class="seccion">
       <h2>Documentos</h2>
-      <a href="https://drive.google.com/open?id=1LPretn8oBDGB37tlJ1Ysmf14CQNylwlR&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
-        <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Legislación
-      </a>
-      <a href="https://drive.google.com/open?id=1gNRJZjFLIdC4NZBoDkNVE48VLyaC0rJ2&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
-        <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Esquema Infracciones
-      </a>
-      <a href="https://drive.google.com/open?id=1eh4vmMmnxg-RS-0S71JLljQNUD2gxDil&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
-        <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Codificado BCPOL
-      </a>
-      <a href="https://drive.google.com/open?id=1ptlBPjzbi_BPp2wFNIft6e0IMAw5ZIn2&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
-        <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Artículos CP
-      </a>
-      <a href="https://drive.google.com/open?id=1XZ3H9017EzPoCMyz6GT0O6U6JMcl-bDC&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
-        <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Codificado DGT
-      </a>
+      <div class="pdf-link-container">
+        <a href="https://drive.google.com/open?id=1LPretn8oBDGB37tlJ1Ysmf14CQNylwlR&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
+          <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
+          Legislación
+        </a>
+        <a href="https://drive.google.com/open?id=1gNRJZjFLIdC4NZBoDkNVE48VLyaC0rJ2&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
+          <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
+          Esquema Infracciones
+        </a>
+        <a href="https://drive.google.com/open?id=1eh4vmMmnxg-RS-0S71JLljQNUD2gxDil&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
+          <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
+          Codificado BCPOL
+        </a>
+        <a href="https://drive.google.com/open?id=1ptlBPjzbi_BPp2wFNIft6e0IMAw5ZIn2&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
+          <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
+          Artículos CP
+        </a>
+        <a href="https://drive.google.com/open?id=1XZ3H9017EzPoCMyz6GT0O6U6JMcl-bDC&usp=drive_fs" target="_blank" rel="noopener noreferrer" class="pdf-link">
+          <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
+          Codificado DGT
+        </a>
+      </div>
     </section>
 
     <!-- SECCIÓN NUBE -->
