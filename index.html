@@ -183,6 +183,27 @@
     .input-icon input:focus ~ .icon {
       fill: #0078D7;
     }
+
+    /* ===================== */
+    /* TABLA CALENDARIO       */
+    /* ===================== */
+    .tabla-calendario {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      margin-top: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .tabla-calendario th, .tabla-calendario td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      min-height: 50px;
+    }
+    .tabla-calendario td strong {
+      color: #0078D7;
+      display: block;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body class="no-access">
@@ -258,12 +279,23 @@
 
     <section id="calendario" class="seccion">
       <h2>Calendario Clases</h2>
-      <ul style="padding-left: 1em;">
-        <li>Lunes 01 de Septiembre - 17:00</li>
-        <li>Miércoles 10 de Septiembre - 17:00</li>
-        <li>Lunes 15 de Septiembre - 17:00</li>
-        <li>Miércoles 24 de Septiembre - 10:00</li>
-      </ul>
+      <div class="tabla-responsive">
+        <table class="tabla-calendario">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Día</th>
+              <th>Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>01/09/2025</td><td>Lunes</td><td><strong>17:00</strong></td></tr>
+            <tr><td>10/09/2025</td><td>Miércoles</td><td><strong>17:00</strong></td></tr>
+            <tr><td>15/09/2025</td><td>Lunes</td><td><strong>17:00</strong></td></tr>
+            <tr><td>24/09/2025</td><td>Miércoles</td><td><strong>10:00</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section id="supuestosemanal" class="seccion">
