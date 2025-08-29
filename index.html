@@ -187,6 +187,26 @@
     @media (max-width: 768px) {
       #inicio img { width: 80%; max-width: 400px; }
     }
+
+    /* ===================== */
+    /* CENTRAR ICONOS PDF EN #ENLACES */
+    /* ===================== */
+    #enlaces {
+      display: flex;              /* Usamos flex para alinear los enlaces en fila */
+      justify-content: center;    /* Centrar horizontalmente */
+      gap: 20px;                  /* Separación entre los iconos */
+      flex-wrap: wrap;            /* Que se adapten en pantallas pequeñas */
+    }
+
+    #enlaces .pdf-link {
+      display: flex;              /* Para que el icono y texto estén en columna */
+      flex-direction: column;     /* Icono arriba, texto debajo */
+      align-items: center;        /* Centrar el contenido dentro del enlace */
+      max-width: 120px;           /* Mantener un ancho máximo */
+      margin: 0;                  /* El gap del contenedor maneja la separación */
+      text-align: center;         /* Asegura que el texto quede centrado */
+    }
+
   </style>
 </head>
 <body class="no-access">
