@@ -16,6 +16,9 @@
   </script>
   
   <style>
+    /* ===================== */
+    /* ENLACE PDF Y ESTILOS GENERALES */
+    /* ===================== */
     .pdf-link {
       display: inline-block;
       margin: 20px 20px 20px 0;
@@ -148,49 +151,54 @@
       }
     }
 
-/* ===================== */
-/* CENTRAR CONTENIDO DE SECCIONES Y RECUPERAR ESPACIO ENTRE ELLAS */
-/* ===================== */
-.seccion {
-  max-width: 900px;       /* limita ancho para que no se extienda demasiado */
-  margin: 0 auto 15px auto;  /* centrado + 60px de separación abajo */
-  text-align: center;     /* centra texto e imágenes dentro */
-  padding: 20px;          /* espacio interno sin eliminar separación externa */
-  box-sizing: border-box;
-}
+    /* ===================== */
+    /* CENTRAR CONTENIDO DE SECCIONES */
+    /* ===================== */
+    .seccion {
+      max-width: 900px;
+      margin: 0 auto 15px auto;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
     /* ===================== */
-    /* TABLA CONVOCATORIAS Y CALENDARIO */
+    /* TABLA AJUSTADA AL CONTENIDO */
     /* ===================== */
     .tabla-responsive {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
+
     .tabla-convocatorias {
-      width: 100%;
+      width: auto; /* se ajusta al contenido */
+      min-width: 100px;
       border-collapse: collapse;
       font-family: Arial, sans-serif;
       font-size: 14px;
-      margin-top: 10px;
-      margin-left: auto;
-      margin-right: auto; /* centra tabla */
+      margin: 10px auto; /* centra la tabla */
     }
+
     .tabla-convocatorias thead {
       background-color: #1e40af;
       color: #fff;
     }
+
     .tabla-convocatorias th,
     .tabla-convocatorias td {
       padding: 10px;
       text-align: center;
       border-bottom: 1px solid #ddd;
     }
+
     .tabla-convocatorias tbody tr:nth-child(even) {
       background-color: #f9fafb;
     }
+
     .tabla-convocatorias tbody tr:hover {
       background-color: #e0f2fe;
     }
+
     @media (max-width: 600px) {
       .tabla-convocatorias th,
       .tabla-convocatorias td {
@@ -200,7 +208,7 @@
     }
 
     /* ===================== */
-    /* LOGIN CON ICONOS       */
+    /* LOGIN CON ICONOS */
     /* ===================== */
     .input-icon {
       position: relative;
