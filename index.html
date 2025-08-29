@@ -6,6 +6,104 @@
   <title>BCPOL - Oposiciones Policía Local Andalucía</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* ===================== */
+    /* ESTILO LOGIN MODERNO  */
+    /* ===================== */
+    body.no-access {
+      background: linear-gradient(135deg, #f0f4ff, #e0f2ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #login {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .login-card {
+      background: #ffffff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .logo-login img {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .login-card h2 {
+      color: #1e40af;
+      margin-bottom: 10px;
+    }
+
+    .login-card p {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 40px 12px 12px;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #1e40af;
+      outline: none;
+      box-shadow: 0 0 5px rgba(30,64,175,0.3);
+    }
+
+    .input-group svg {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: #aaa;
+    }
+
+    .login-card button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1e40af;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .login-card button:hover {
+      background-color: #16388b;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 400px) {
+      .login-card {
+        padding: 25px 15px;
+      }
+    }
+
+    /* ===================== */
+    /* ESTILOS EXISTENTES    */
+    /* ===================== */
     .pdf-link {
       display: inline-block;
       margin: 20px 20px 20px 0;
@@ -30,51 +128,10 @@
     }
 
     #content { display: none; padding: 20px; }
-    #login {
-      max-width: 300px;
-      margin: 80px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 6px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-      font-family: Arial, sans-serif;
-      text-align: center;
-      display: none;
-    }
-    #login input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      box-sizing: border-box;
-    }
-    #login button {
-      width: 100%;
-      padding: 10px;
-      background-color: #0078D7;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 4px;
-    }
-    #login button:hover {
-      background-color: #005ea3;
-    }
 
     body.no-access header,
     body.no-access footer {
       display: none;
-    }
-
-    .logo-login {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .logo-login img {
-      width: 140px;
-      height: auto;
-      display: inline-block;
-      margin-bottom: 3px;
     }
 
     .hamburger {
@@ -112,7 +169,7 @@
         font-weight: bold;
       }
       nav#nav-menu ul li a:hover {
-        color: #0078D7;
+        color: #1e40af;
       }
       .hamburger {
         display: block;
@@ -163,16 +220,24 @@
 </head>
 <body class="no-access">
 
-  <!-- LOGIN -->
+  <!-- LOGIN MODERNO CON SVG -->
   <div id="login">
-    <div class="logo-login">
-      <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
+    <div class="login-card">
+      <div class="logo-login">
+        <img src="LOGO BC POL CUADRADO PNG.png" alt="BCPOL Logo" />
+      </div>
+      <h2>Acceso Restringido</h2>
+      <p>Este acceso es exclusivo para <strong>miembros de BCPOL</strong>. Introduce tus credenciales.</p>
+      <div class="input-group">
+        <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.2c-3.2 0-9.6 1.6-9.6 4.9v2.7h19.2v-2.7c0-3.3-6.4-4.9-9.6-4.9z"/></svg>
+      </div>
+      <div class="input-group">
+        <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
+        <svg viewBox="0 0 24 24"><path d="M17 8h-1V6c0-2.8-2.2-5-5-5S6 3.2 6 6v2H5c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-7 9c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm3-9H8V6c0-1.7 1.3-3 3-3s3 1.3 3 3v2z"/></svg>
+      </div>
+      <button onclick="checkPass()">Entrar</button>
     </div>
-    <h2>Acceso Restringido</h2>
-    <p>Este acceso es exclusivo para <strong>miembros de BCPOL</strong>. Si eres miembro, introduce tus credenciales.</p>
-    <input type="text" id="user" placeholder="Usuario" autocomplete="username" />
-    <input type="password" id="pass" placeholder="Contraseña" autocomplete="current-password" />
-    <button onclick="checkPass()">Entrar</button>
   </div>
 
   <!-- CONTENIDO -->
@@ -241,7 +306,6 @@
       </a>
     </section>
     
-    <!-- NUEVA TABLA CONVOCATORIAS -->
     <section id="convocatorias" class="seccion">
       <h2>Convocatorias</h2>
       <div class="tabla-responsive">
