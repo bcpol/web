@@ -77,7 +77,7 @@
       border: none;
       font-size: 28px;
       cursor: pointer;
-      color: #fff;
+      color: #fff; /* icono blanco por defecto */
       margin-right: 20px;
     }
 
@@ -88,7 +88,7 @@
       text-decoration: none;
       display: inline-block;
       transition: transform 0.2s ease;
-      color: #fff;       /* letras blancas */
+      color: #fff;       /* letras blancas por defecto en escritorio */
       font-weight: bold;
     }
 
@@ -100,7 +100,7 @@
       nav#nav-menu ul {
         display: none;
         flex-direction: column;
-        background: #1e40af; /* fondo azul en móvil para que letras blancas se vean */
+        background: #fff; /* fondo blanco */
         padding: 10px;
         margin: 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -116,7 +116,7 @@
         margin: 10px 0;
       }
       nav#nav-menu ul li a {
-        color: #fff; /* letras blancas también en móvil */
+        color: #000; /* letras negras */
         text-decoration: none;
         font-weight: bold;
         display: inline-block;
@@ -130,7 +130,19 @@
         position: absolute;
         top: 25px;
         right: 10px;
+        color: #fff; /* icono hamburguesa blanco */
       }
+    }
+
+    /* ===================== */
+    /* CENTRAR CONTENIDO DE SECCIONES */
+    /* ===================== */
+    .seccion {
+      max-width: 900px;       /* limita ancho */
+      margin: 0 auto;         /* centra horizontalmente */
+      text-align: center;     /* centra texto e imágenes */
+      padding: 40px 20px;     /* espacio arriba/abajo y laterales */
+      box-sizing: border-box;
     }
 
     /* ===================== */
@@ -146,6 +158,8 @@
       font-family: Arial, sans-serif;
       font-size: 14px;
       margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto; /* centra tabla */
     }
     .tabla-convocatorias thead {
       background-color: #1e40af;
@@ -259,11 +273,11 @@
       <h2>Enlaces Videos</h2>
       <a href="https://drive.google.com/file/d/1PG6VI5pwzRyiGl5BKOupuH1JqOUbVm_x/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Enlaces por apuntes
+        Enlaces apuntes
       </a>
       <a href="https://drive.google.com/file/d/1l2FavslxBZioaInzacgUrPNaaXyUlLdI/preview" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/pdf-icon_256x256.png" alt="Icono PDF" />
-        Enlaces por clases
+        Enlaces clases
       </a>
     </section>
 
@@ -271,7 +285,7 @@
       <h2>Nube Clases</h2>
       <a href="https://drive.google.com/drive/folders/1MtafAxv0uLt98_bCiFM9Cwu-pzeUMZwT?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-link">
         <img src="https://raw.githubusercontent.com/bcpol/web/main/google-drive_256x256.png" alt="Icono Google Drive" />
-        Acceder a la nube
+        Acceder
       </a>
     </section>
 
@@ -370,4 +384,3 @@
   </script>
 </body>
 </html>
-
