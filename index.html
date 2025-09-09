@@ -414,7 +414,7 @@
 
     // Lista básica de usuarios y contraseñas
     const usuarios = {
-      "Bcpol": "lobo123",
+      "bcpol": "julen123",
       "acotorrox": "lobo123",
       "adrian": "tigre456",
       "ana": "gato789",
@@ -441,9 +441,6 @@
       document.getElementById('content').style.display = 'block';
       document.body.classList.remove('no-access');
 
-      // Mensaje de bienvenida
-      const bienvenida = document.getElementById('bienvenida');
-      bienvenida.textContent = `Bienvenido, ${user}!`;
     } else {
       alert('Usuario o contraseña incorrectos');
     }
