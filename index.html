@@ -138,12 +138,13 @@
     .seccion { margin: 0 auto 15px auto; text-align: center; padding: 20px; box-sizing: border-box; }
 
     #documentos .pdf-link-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  margin-bottom: 20px;
-}
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      margin-bottom: 20px;
+    }
+
     /* ===================== */
     /* TABLAS */
     /* ===================== */
@@ -171,7 +172,7 @@
     .input-icon input:focus + .icon, .input-icon input:focus ~ .icon { fill: #0078D7; }
 
     /* ===================== */
-    /* IMAGEN INICIO - BORDES, SOMBRA, HOVER Y RESPONSIVE */
+    /* IMAGEN INICIO */
     /* ===================== */
     #inicio img {
       width: 25%; 
@@ -191,26 +192,22 @@
     }
 
     /* ===================== */
-    /* CENTRAR ICONOS PDF EN #ENLACES y #DOCUMENTOS */
+    /* CENTRAR ICONOS PDF */
     /* ===================== */
-    #enlaces, #documentos {
-      text-align: center; /* Centrar títulos */
-    }
-
+    #enlaces, #documentos { text-align: center; }
     #enlaces h2,
     #documentos h2,
     #nubeclases h2,
     #supuestosemanal h2,
     #saladereuniones h2 {
-  margin-bottom: 20px; /* mismo espacio que Enlaces y Documentos */
-}
-    
+      margin-bottom: 20px;
+    }
     .pdf-link-container {
       display: flex;             
       justify-content: center;   
       gap: 20px;                 
       flex-wrap: wrap;
-      margin-bottom: 20px; /* Espacio inferior igual que tablas de calendario */
+      margin-bottom: 20px; 
     }
   </style>
 </head>
@@ -261,6 +258,9 @@
       </nav>
     </header>
 
+    <!-- Mensaje de bienvenida -->
+    <p id="bienvenida" style="text-align:center; font-weight:bold; font-size:18px; margin: 10px 0;"></p>
+
     <!-- SECCIÓN INICIO -->
     <section id="inicio" class="seccion">
       <h2>Bienvenido a BCPOL</h2>
@@ -268,7 +268,7 @@
       <img src="https://raw.githubusercontent.com/bcpol/web/refs/heads/main/1691745780035.jpg" alt="Imagen de inicio" />
     </section>
 
-    <!-- SECCIÓN ENLACES -->
+        <!-- SECCIÓN ENLACES -->
     <section id="enlaces" class="seccion">
       <h2>Enlaces Videos</h2>
       <div class="pdf-link-container">
@@ -411,12 +411,39 @@
   function checkPass() {
     const user = document.getElementById('user').value.trim();
     const pass = document.getElementById('pass').value.trim();
-    const validUser = 'bcpol';
-    const validPass = 'bcpol1234';
-    if(user === validUser && pass === validPass) {
+
+    // Lista básica de usuarios y contraseñas
+    const usuarios = {
+      "Bcpol": "lobo123",
+      "acotorrox": "lobo123",
+      "adrian": "tigre456",
+      "ana": "gato789",
+      "aquiles": "oso321",
+      "aroa": "leon654",
+      "carlota": "pantera246",   // cambiada
+      "ricky": "perro147",
+      "ricardo": "caballo258",
+      "javitoro": "bisonte864",  // cambiada
+      "josecarlos": "panda741",
+      "joseferiante": "raton852",
+      "juancorpas": "aguila963",
+      "mamen": "delfin159",
+      "mariotorrox": "tortuga753",
+      "natalia": "rana456",
+      "olga": "gallo951",
+      "pepemedina": "mono357",
+      "santi": "koala159",
+      "toni": "tigre753"
+    };
+
+    if (usuarios[user] && usuarios[user] === pass) {
       document.getElementById('login').style.display = 'none';
       document.getElementById('content').style.display = 'block';
       document.body.classList.remove('no-access');
+
+      // Mensaje de bienvenida
+      const bienvenida = document.getElementById('bienvenida');
+      bienvenida.textContent = `Bienvenido, ${user}!`;
     } else {
       alert('Usuario o contraseña incorrectos');
     }
